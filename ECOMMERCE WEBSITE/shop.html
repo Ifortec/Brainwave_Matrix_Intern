@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Shop – OYELLA4U</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rich-red: #e74c3c;
+      --fresh-green: #27ae60;
+      --gold-yellow: #f39c12;
+      --light-bg: #fffaf5;
+      --text-dark: #2c3e50;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(to right, var(--fresh-green), var(--gold-yellow), var(--rich-red));
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-left img {
+      height: 50px;
+      max-width: 160px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 0.2rem;
+    }
+
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 3rem 2rem;
+      background: var(--white);
+    }
+
+    .corn-image {
+      width: 45%;
+      height: 550px;
+      background: url('https://i.ytimg.com/vi/XOxv8a2VaEQ/hq720.jpg') no-repeat center/cover;
+      clip-path: polygon(0 0, 80% 0, 100% 20%, 100% 80%, 80% 100%, 0 100%, 10% 60%, 0 20%);
+      border-radius: 0 60px 60px 0;
+      box-shadow: 5px 0 25px rgba(0, 0, 0, 0.25);
+      margin-right: 2rem;
+      min-width: 280px;
+    }
+
+    .text-box {
+      max-width: 480px;
+    }
+
+    .text-box h1 {
+      font-size: 2.5rem;
+      color: var(--rich-red);
+      margin-bottom: 1rem;
+    }
+
+    .text-box p {
+      font-size: 1.2rem;
+      color: var(--fresh-green);
+      margin-bottom: 1.5rem;
+    }
+
+    .text-box button {
+      padding: 0.9rem 1.8rem;
+      background: var(--gold-yellow);
+      color: var(--white);
+      border: none;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .text-box button:hover {
+      background: var(--rich-red);
+    }
+
+    .product-section {
+      padding: 4rem 1.5rem;
+      text-align: center;
+    }
+
+    .product-section h2 {
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+      color: var(--rich-red);
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      padding: 1rem;
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin: 0.8rem 0 0.5rem;
+    }
+
+    .product-card p {
+      font-size: 1rem;
+      color: var(--gold-yellow);
+    }
+
+    .product-card button {
+      margin-top: 0.5rem;
+      background: var(--fresh-green);
+      color: white;
+      border: none;
+      padding: 0.6rem 1.2rem;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .product-card button:hover {
+      background: var(--rich-red);
+    }
+
+    .cart-section {
+      padding: 3rem 1.5rem;
+      background: #fff3e0;
+    }
+
+    .cart-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    #cart {
+      max-width: 700px;
+      margin: 0 auto;
+      background: white;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    #cart ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    #cart li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.7rem 0;
+      border-bottom: 1px solid #ccc;
+    }
+
+    #cart input[type="number"] {
+      width: 60px;
+      padding: 0.3rem;
+      text-align: center;
+    }
+
+    #total {
+      font-weight: bold;
+      margin-top: 1rem;
+      text-align: right;
+    }
+
+    .checkout-btn {
+      display: block;
+      margin: 1.5rem auto 0;
+      padding: 0.8rem 2rem;
+      background: var(--rich-red);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    footer {
+      background: var(--rich-red);
+      color: var(--white);
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        flex-direction: column;
+      }
+
+      .corn-image {
+        width: 100%;
+        height: 300px;
+        clip-path: ellipse(50% 40% at center);
+        border-radius: 0;
+        margin-bottom: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <img src="logo.png" alt="OYELLA4U Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="shop.html" class="active">Shop</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="corn-image"></div>
+    <div class="text-box">
+      <h1>Order Your Favorite Corn Moi Moi</h1>
+      <p>Delicious, local, and satisfying meals delivered fresh and fast.</p>
+      <button onclick="document.querySelector('#products').scrollIntoView({behavior: 'smooth'})">View Menu</button>
+    </div>
+  </section>
+
+  <section id="products" class="product-section">
+    <h2>Our Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="https://i.ytimg.com/vi/XOxv8a2VaEQ/hq720.jpg" alt="Classic Corn Moi Moi">
+        <h3>Classic Corn Moi Moi</h3>
+        <p>₦500</p>
+        <button onclick="addToCart('Classic Corn Moi Moi', 500)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFczmDnLEaomZLsHB7mbLKSKTqiTb69p18oQ&s" alt="Spicy Moi Moi">
+        <h3>Spicy Moi Moi Pack</h3>
+        <p>₦700</p>
+        <button onclick="addToCart('Spicy Moi Moi Pack', 700)">Add to Cart</button>
+      </div>
+      <div class="product-card">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLo16xarzN7NSYP7KYGhuYF3s6wrzCrgIuQA&s" alt="Party Tray">
+        <h3>Party Tray</h3>
+        <p>₦5000</p>
+        <button onclick="addToCart('Party Tray', 5000)">Add to Cart</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="cart-section">
+    <h2>Your Cart</h2>
+    <div id="cart">
+      <ul id="cart-items"></ul>
+      <div id="total">Total: ₦0</div>
+      <button class="checkout-btn" onclick="goToCheckout()">Checkout</button>
+    </div>
+  </section>
+
+  <a class="whatsapp-float" href="https://wa.me/2349071636467" target="_blank">Chat Me on WhatsApp</a>
+
+  <footer>
+    <p>&copy; 2025 OYELLA4U. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const cartItems = [];
+
+    function addToCart(product, price) {
+      const existingItem = cartItems.find(item => item.product === product);
+      if (existingItem) {
+        existingItem.quantity++;
+      } else {
+        cartItems.push({ product, price, quantity: 1 });
+      }
+      renderCart();
+    }
+
+    function updateQuantity(index, delta) {
+      cartItems[index].quantity += delta;
+      if (cartItems[index].quantity < 1) {
+        cartItems.splice(index, 1);
+      }
+      renderCart();
+    }
+
+    function handleInputChange(index, value) {
+      const quantity = parseInt(value);
+      cartItems[index].quantity = isNaN(quantity) || quantity < 1 ? 1 : quantity;
+      renderCart();
+    }
+
+    function renderCart() {
+      const list = document.getElementById("cart-items");
+      list.innerHTML = "";
+      let total = 0;
+
+      cartItems.forEach((item, index) => {
+        const li = document.createElement("li");
+        const name = document.createElement("span");
+        name.textContent = item.product;
+
+        const controls = document.createElement("div");
+        controls.style.display = "flex";
+        controls.style.alignItems = "center";
+        controls.style.gap = "0.5rem";
+
+        const minusBtn = document.createElement("button");
+        minusBtn.textContent = "-";
+        minusBtn.onclick = () => updateQuantity(index, -1);
+
+        const input = document.createElement("input");
+        input.type = "number";
+        input.min = "1";
+        input.value = item.quantity;
+        input.onchange = (e) => handleInputChange(index, e.target.value);
+
+        const plusBtn = document.createElement("button");
+        plusBtn.textContent = "+";
+        plusBtn.onclick = () => updateQuantity(index, 1);
+
+        const subtotal = document.createElement("strong");
+        subtotal.textContent = `₦${item.price * item.quantity}`;
+
+        controls.append(minusBtn, input, plusBtn, subtotal);
+        li.append(name, controls);
+        list.appendChild(li);
+
+        total += item.price * item.quantity;
+      });
+
+      document.getElementById("total").textContent = `Total: ₦${total}`;
+    }
+
+    function goToCheckout() {
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      window.location.href = "checkout.html";
+    }
+  </script>
+
+</body>
+</html>

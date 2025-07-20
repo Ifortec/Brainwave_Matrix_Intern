@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us – OYELLA4U</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rich-red: #e74c3c;
+      --fresh-green: #27ae60;
+      --gold-yellow: #f39c12;
+      --light-bg: #fffaf5;
+      --text-dark: #2c3e50;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(to right, var(--fresh-green), var(--gold-yellow), var(--rich-red));
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-left img {
+      height: 50px;
+      max-width: 160px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 0.2rem;
+    }
+
+    .about-section {
+      padding: 4rem 2rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      background: var(--white);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      border-radius: 10px;
+    }
+
+    .about-section h1 {
+      color: var(--rich-red);
+      font-size: 2.5rem;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .about-section p {
+      font-size: 1.1rem;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .highlight {
+      color: var(--fresh-green);
+      font-weight: bold;
+    }
+
+    .team-section {
+      margin-top: 3rem;
+    }
+
+    .team-member {
+      background: var(--light-bg);
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+      border-left: 5px solid var(--gold-yellow);
+      border-radius: 8px;
+    }
+
+    footer {
+      background: var(--rich-red);
+      color: white;
+      padding: 1.5rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    @media (max-width: 768px) {
+      .about-section {
+        padding: 2rem 1rem;
+      }
+
+      .about-section h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <img src="20250624_222538.png" alt="OYELLA4U Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html" class="active">About</a>
+      <a href="index.html#products">Shop</a>
+      <a href="index.html#contact">Contact</a>
+      
+    </nav>
+  </header>
+
+  <section class="about-section">
+    <h1>About OYELLA4U</h1>
+    <p>
+      <span class="highlight">OYELLA4U</span> is a proudly Nigerian food brand committed to delivering fresh and nutritious <strong>Corn Moi Moi</strong> to food lovers within and around the Federal University of Technology Owerri (FUTO). Our passion for quality, taste, and hygiene drives us to prepare each dish with care and a touch of tradition.
+    </p>
+
+    <p>
+      We specialize in fast delivery, bulk orders for events, and custom trays for parties. Whether you're craving a simple meal or planning an elaborate celebration, OYELLA4U ensures your order is tasty, timely, and memorable.
+    </p>
+
+    <p>
+      Our mission is to promote local food culture while providing students, staff, and residents around FUTO with a reliable and delicious alternative to everyday meals.
+    </p>
+
+    <div class="team-section">
+      <h2 style="color: var(--gold-yellow); margin-bottom: 1rem;">Meet the Team</h2>
+      <div class="team-member">
+        <strong>UCHECHI UCHE</strong> – Founder & Head Chef<br/>
+        Passionate about creating authentic flavors, Uche leads the kitchen with dedication and a strong love for Nigerian cuisine.
+      </div>
+      <div class="team-member">
+        <strong>Delivery Team</strong> – On-the-Go Support<br/>
+        Our trusted riders and support staff make sure your orders get to you fresh and fast – every time.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    &copy; 2025 OYELLA4U. All rights reserved.
+  </footer>
+
+</body>
+</html>

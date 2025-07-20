@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us – OYELLA4U</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rich-red: #e74c3c;
+      --fresh-green: #27ae60;
+      --gold-yellow: #f39c12;
+      --light-bg: #fffaf5;
+      --text-dark: #2c3e50;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: linear-gradient(to right, var(--fresh-green), var(--gold-yellow), var(--rich-red));
+      color: var(--white);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .header-left img {
+      height: 50px;
+      max-width: 160px;
+    }
+
+    nav {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--white);
+      font-weight: 600;
+    }
+
+    nav a:hover,
+    nav a.active {
+      border-bottom: 2px solid var(--white);
+      padding-bottom: 0.2rem;
+    }
+
+    main {
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    main h1 {
+      color: var(--rich-red);
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    main p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info {
+      background: #ffffff;
+      max-width: 500px;
+      margin: auto;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 1rem 0;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25D366;
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .whatsapp-float:hover {
+      background-color: #128C7E;
+    }
+
+    footer {
+      background: var(--rich-red);
+      color: var(--white);
+      padding: 2rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="header-left">
+      <img src="20250624_222538.png" alt="OYELLA4U Logo">
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="shop.html">Shop</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1>Contact OYELLA4U</h1>
+    <p>We're happy to hear from you! Reach out via phone or WhatsApp below.</p>
+    <div class="contact-info">
+      <p><strong>Phone:</strong> +234 907 163 6467</p>
+      <p><strong>Email:</strong> oyella4u@gmail.com</p>
+      <p><strong>WhatsApp:</strong> <a href="https://wa.me/2349071636467" target="_blank">Chat with us</a></p>
+      <p><strong>Address:</strong> FUTO, Owerri, Imo State, Nigeria</p>
+    </div>
+  </main>
+
+  <a class="whatsapp-float" href="https://wa.me/2349071636467" target="_blank">Chat Me on WhatsApp</a>
+
+  <footer>
+    <p>&copy; 2025 OYELLA4U. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome to OYELLA4U</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --rich-red: #e74c3c;
+      --fresh-green: #27ae60;
+      --gold-yellow: #f39c12;
+      --light-bg: #fffaf5;
+      --dark-bg: #1e1e1e;
+      --text-dark: #2c3e50;
+      --white: #ffffff;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: var(--light-bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    /* Preloader */
+    #preloader {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--light-bg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .spinner {
+      border: 6px solid #f3f3f3;
+      border-top: 6px solid var(--rich-red);
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .hero-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      color: var(--white);
+      overflow: hidden;
+    }
+
+    .slideshow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      animation: slideShow 24s infinite;
+    }
+
+    @keyframes slideShow {
+      0% { background-image: url('https://i.ytimg.com/vi/XOxv8a2VaEQ/hq720.jpg'); }
+      33% { background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFczmDnLEaomZLsHB7mbLKSKTqiTb69p18oQ&s'); }
+      66% { background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLo16xarzN7NSYP7KYGhuYF3s6wrzCrgIuQA&s'); }
+      100% { background-image: url('https://i.ytimg.com/vi/XOxv8a2VaEQ/hq720.jpg'); }
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem;
+    }
+
+    .logo {
+      max-width: 160px;
+      margin-bottom: 1rem;
+    }
+
+    .overlay h1 {
+      font-size: 2.8rem;
+      margin-bottom: 1rem;
+      color: var(--gold-yellow);
+    }
+
+    .overlay p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+      color: #f8f8f8;
+    }
+
+    .enter-btn {
+      padding: 1rem 2rem;
+      background: var(--gold-yellow);
+      color: var(--white);
+      border: none;
+      border-radius: 12px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .enter-btn:hover {
+      background: var(--rich-red);
+    }
+
+    footer {
+      text-align: center;
+      background: var(--rich-red);
+      color: white;
+      padding: 1rem;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+
+    @media (max-width: 600px) {
+      .overlay h1 {
+        font-size: 2rem;
+      }
+
+      .overlay p {
+        font-size: 1rem;
+      }
+
+      .enter-btn {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <div class="hero-container">
+    <div class="slideshow"></div>
+    <div class="overlay">
+      <img class="logo" src="20250624_222538.png" alt="OYELLA4U Logo">
+      <h1>Welcome to OYELLA4U</h1>
+      <p>Fresh, flavorful Corn Moi Moi made with passion. Your go-to for tasty snacks, event trays & fast delivery in FUTO and beyond.</p>
+      <a href="shop.html"><button class="enter-btn">Enter Shop</button></a>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 OYELLA4U. All rights reserved.
+  </footer>
+
+  <script>
+    window.addEventListener("load", () => {
+      document.getElementById("preloader").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
